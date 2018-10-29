@@ -1,0 +1,7 @@
+# Flask dependencies
+Flask==1.0.2
+Werkzeug==0.14
+Jinja2==2.10
+Click==7.0
+ItsDangerous==1.1.0
+MarkupSafe==1.0
