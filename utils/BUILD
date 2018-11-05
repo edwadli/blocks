@@ -1,8 +1,9 @@
 package(default_visibility = ["//:__subpackages__"])
 
-py_binary(
-	name="hello",
-	srcs = ["hello.py"],
-	deps = []
-	)
-	
+py_library(
+    name = "simple_pymongo_counter",
+    srcs = ["simple_pymongo_counter.py"],
+    deps = [
+        "//env:pymongo_env",
+    ],
+)

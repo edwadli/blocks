@@ -19,3 +19,17 @@ py_library(
     ],
 )
 
+py_library(
+    name = "pymongo",
+    deps = [
+        requirement("pymongo"),
+    ],
+)
+
+py_library(
+    name = "pymongo_env",
+    srcs = ["pymongo_env.py"],
+    deps = [
+        ":pymongo",
+    ],
+)
