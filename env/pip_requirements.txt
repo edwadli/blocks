@@ -1,9 +1,23 @@
-# Flask dependencies
+# Flask base dependencies
 Flask==1.0.2
 Werkzeug==0.14
 Jinja2==2.10
 Click==7.0
 ItsDangerous==1.1.0
 MarkupSafe==1.0
+# Flask OAuth
+Flask-Dance==1.1.0
+lazy==1.2
+oauthlib==2.1.0
+requests-oauthlib==1.0.0
+requests==2.20.1
+urllib3==1.24.1
+chardet==3.0.4
+certifi==2018.10.15
+idna==2.7
+six==1.11.0
+URLObject==2.4.3
 # MongoDB dependencies
 PyMongo==3.7.2
+# Python general, including: flags
+absl-py==0.6.1
