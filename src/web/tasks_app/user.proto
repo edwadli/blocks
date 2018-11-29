@@ -1,0 +1,11 @@
+
+message User {
+    // The unique user id.
+    optional string user_id = 1;
+    
+    // The user's primary email.
+    optional string email = 2;
+    
+    // The user's preferred name.
+    optional string name = 3;
+}

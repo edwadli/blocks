@@ -1,0 +1,29 @@
+
+message Task {
+  // The unique id of this task.
+  optional string task_id = 1;
+
+  // The user that this task belongs to.
+  optional string user_id = 2;
+    
+  // The description of the task.
+  optional string description = 3;
+    
+  // The state of the task.
+  enum TaskState {
+    TASK_STATE_UNKNOWN = 0;
+    NEW = 1;
+    DONE = 2;
+  }
+  optional TaskState state = 4;
+  
+  // The time of creation in epoch milliseconds.
+  optional string creation_millis = 5;
+    
+  // Additional tags to describe the task.
+  message TaskTag {
+    // The tag description.
+    optional string description = 1;
+  }
+  repeated TaskTag tags = 6;
+}
