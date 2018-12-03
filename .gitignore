@@ -2,6 +2,6 @@
 /bazel-bin
 /bazel-blocks
 /bazel-out
-/bazel-genfile/
+/bazel-genfiles
 /bazel-testlogs
 # Env variables
