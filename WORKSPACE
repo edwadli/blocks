@@ -45,7 +45,11 @@ bind(
     actual = "@six_archive//:six",
 )
 # Depending on your version of sed, you need either -i '' or just -i.
-SED_CMD = "sed -i " + " ".join(["-e '%s'" % e for e in [
+SEDI_CMD = (
+  'sedi () {\n' +
+  'sed --version >/dev/null 2>&1 && sed -i "$@" || sed -i "" "$@"\n' +
+  '}\n')
+SED_CMD = SEDI_CMD + "sedi " + " ".join(["-e '%s'" % e for e in [
     's~name = "six"~name = "six_hacked"~',
     's~"@six//:six"~"@six_hacked//:six_hacked"~',
     's~\"@six\"~\"@six_hacked\"~',
@@ -63,7 +67,7 @@ http_archive(
     sha256 = "29d109605e0d6f9c892584f07275b8c9260803bf0c6fcb7de2623b2bedc910bd",
     strip_prefix = "rules_docker-0.5.1",
     urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.5.1.tar.gz"],
-    patch_cmds = [SED_CMD+ " container/container.bzl"],
+    patch_cmds = [SED_CMD + " container/container.bzl"],
 )
 load(
     "@io_bazel_rules_docker//container:container.bzl",
