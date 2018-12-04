@@ -1,2 +1,3 @@
 # Bazel symlink files
 .bazel/
+bazel-out/
