@@ -1,7 +1,2 @@
 # Bazel symlink files
-/bazel-bin
-/bazel-blocks
-/bazel-out
-/bazel-genfiles
-/bazel-testlogs
-# Env variables
+.bazel/
