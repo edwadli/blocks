@@ -1,17 +1,18 @@
 <html>
 
 <body>
-  <div id="test_area"></div>
-  <div id="title">
-    TASKS APP
-  </div>
+  <div id="navbar"></div>
+  <div id="index_body"></div>
 
   <!-- Load React. -->
   <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-  
-  <script src="/js/tasks.js"></script>
+  <!-- JSX: Development ONLY! Use a JSX compiler when deploying -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel" src="/jsx/navbar.jsx"></script>
+  <script type="text/babel" src="/jsx/index_body.jsx"></script>
 </body>
 
 </html>

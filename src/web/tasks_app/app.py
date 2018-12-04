@@ -82,6 +82,12 @@ def send_js(file):
     return ""
   return flask.send_from_directory("resources", file)
 
+@app.route("/jsx/<path:file>", methods=["GET"])
+def send_jsx(file):
+  if file.split(".")[-1] != "jsx":
+    return ""
+  return flask.send_from_directory("resources", file)
+
 @app.route("/login/google")
 def login_google():
   return flask.redirect(flask.url_for("google.login"))
@@ -91,14 +97,22 @@ def login_google():
 @app.route("/api/profile/read", methods=["POST"])
 def read_profile():
   user = LoadUser()
-  # TODO: update name and email of user
-  return json.dumps({})
+  result = {}
+  proto_utils.MergeProtoToDict(user, result)
+  return json.dumps(result)
 
 @app.route("/api/profile/update", methods=["POST"])
 def update_profile():
   user = LoadUser()
-  # TODO: update name and email of user
-  return json.dumps({})
+  if user is None:
+    return json.dump({})  # TODO: return an error
+  # Read request data to update 'name' or 'email' fields.
+  request_json = flask.request.get_json()
+  update_data = {k: request_json.get(k) for k in ["name", "email"]
+                 if k in request_json}
+  single_pymongo_document.SinglePymongoDocument(
+    user.user_id, collection=_USER_TABLE).UpdateFields(update_data)
+  return json.dumps({})  # TODO: return a success
 
 @app.route("/api/profile/logout", methods=["POST"])
 def logout_profile():

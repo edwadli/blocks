@@ -30,7 +30,11 @@ class SinglePymongoDocument(object):
   def UpdateDocument(self, update):
     """Updates the document with 'update' pymongo dict."""
     return self._collection.update_one(self._doc, update)
-
+  
+  def UpdateFields(self, update):
+    """Updates the document with the field/valules in 'update'."""
+    return self._collection.update_one(self._doc, {'$set': update})
+  
   def GetDocument(self):
     """Returns the document."""
     return self._collection.find_one(self._doc)
