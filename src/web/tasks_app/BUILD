@@ -4,7 +4,12 @@ load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
 py_image(
     name = "app",
     srcs = ["app.py"],
-    data = glob(["resources/*"]),
+    data = [
+      "//src/web/tasks_app/resources:index.html",
+      "//src/web/tasks_app/resources:index.css",
+      "//src/web/tasks_app/resources:bundle_jsx",
+      "//src/web/tasks_app/resources:navbar.jsx",
+    ],
     deps = [
       ":task_py_proto",
       ":user_py_proto",
@@ -12,7 +17,7 @@ py_image(
       "//env:flask-dance",
       "//env:secret_keeper",
     	"//src/utils:proto_utils",
-    	"//src/utils:single_pymongo_document",
+    	"//src/utils:pymongo_utils",
     ],
 )
 

@@ -3,6 +3,12 @@ message User {
     // The unique user id.
     optional string user_id = 1;
     
+    // Auth options.
+    message AuthInfo {
+      optional string google_oauth = 1;
+    }
+    optional AuthInfo auth = 4;
+    
     // The user's primary email.
     optional string email = 2;
     

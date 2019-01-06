@@ -91,3 +91,12 @@ load(
     _py_image_repos = "repositories",
 )
 _py_image_repos()
+
+# Webpack
+git_repository(
+    name = "org_dropbox_rules_node",
+    remote = "https://github.com/dropbox/rules_node.git",
+    commit = "720576bd5536390c63dca571d338361d008de3da",
+)
+load("@org_dropbox_rules_node//node:defs.bzl", "node_repositories")
+node_repositories()

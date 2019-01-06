@@ -21,3 +21,11 @@ py_library(
   srcs = ["proto_utils.py"],
   deps = [],
 )
+
+py_library(
+  name = "pymongo_utils",
+  srcs = ["pymongo_utils.py"],
+  deps = [
+    ":proto_utils",
+  ],
+)

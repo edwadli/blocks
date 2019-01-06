@@ -163,7 +163,7 @@ def MergeDictToProto(values, message):
   """Merge dictionary into proto. Extensions unsupported."""
   dict_to_protobuf(message, values)
     
-def MergeProtoToDict(message, values):
+def MergeProtoToDict(message, values, use_enum_labels=True):
   """Merge proto into dictionary. Extensions unsupported."""
-  result = protobuf_to_dict(message)
+  result = protobuf_to_dict(message, use_enum_labels=use_enum_labels)
   values.update(result)

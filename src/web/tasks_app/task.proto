@@ -24,6 +24,9 @@ message Task {
   message TaskTag {
     // The tag description.
     optional string description = 1;
+    
+    // The tag id.
+    optional string tag_id = 2;
   }
   repeated TaskTag tags = 6;
 }
