@@ -4,11 +4,10 @@ git_repository(
     remote = "https://github.com/protocolbuffers/protobuf.git",
     commit = "ebfc0432c1e4b0b7202ebb00642dcfc2a13094be",
 )
-http_archive(
+git_repository(
     name = "bazel_skylib",
-    sha256 = "bbccf674aa441c266df9894182d80de104cabd19be98be002f6d478aaa31574d",
-    strip_prefix = "bazel-skylib-2169ae1c374aab4a09aa90e65efe1a3aad4e279b",
-    urls = ["https://github.com/bazelbuild/bazel-skylib/archive/2169ae1c374aab4a09aa90e65efe1a3aad4e279b.tar.gz"],
+    remote = "https://github.com/bazelbuild/bazel-skylib.git",
+    tag = "0.6.0",
 )
 load("//env:protobuf.bzl", "check_protobuf_required_bazel_version")
 check_protobuf_required_bazel_version()
@@ -91,12 +90,3 @@ load(
     _py_image_repos = "repositories",
 )
 _py_image_repos()
-
-# Webpack
-git_repository(
-    name = "org_dropbox_rules_node",
-    remote = "https://github.com/dropbox/rules_node.git",
-    commit = "720576bd5536390c63dca571d338361d008de3da",
-)
-load("@org_dropbox_rules_node//node:defs.bzl", "node_repositories")
-node_repositories()

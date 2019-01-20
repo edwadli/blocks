@@ -5,10 +5,7 @@ py_image(
     name = "app",
     srcs = ["app.py"],
     data = [
-      "//src/web/tasks_app/resources:index.html",
-      "//src/web/tasks_app/resources:index.css",
-      "//src/web/tasks_app/resources:bundle_jsx",
-      "//src/web/tasks_app/resources:navbar.jsx",
+      "//src/web/tasks_app/resources:client",
     ],
     deps = [
       ":task_py_proto",

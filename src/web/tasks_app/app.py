@@ -81,25 +81,10 @@ def LoadUser():
 
 @app.route("/")
 def index():
-#   return flask.send_file("resources/index.html")
   return flask.send_from_directory("resources", "index.html")
 
-@app.route("/css/<path:file>", methods=["GET"])
-def send_css(file):
-  if file.split(".")[-1] != "css":
-    return flask.abort(404)
-  return flask.send_from_directory("resources", file)
-
-@app.route("/js/<path:file>", methods=["GET"])
-def send_js(file):
-  if file.split(".")[-1] != "js":
-    return flask.abort(404)
-  return flask.send_from_directory("resources", file)
-
-@app.route("/jsx/<path:file>", methods=["GET"])
-def send_jsx(file):
-  if file.split(".")[-1] != "jsx":
-    return flask.abort(404)
+@app.route("/resources/<path:file>", methods=["GET"])
+def send_resource(file):
   return flask.send_from_directory("resources", file)
 
 @app.route("/login/google")
